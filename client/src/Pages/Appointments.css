@@ -1,0 +1,148 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .appointment-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  .heading h1 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .heading h2 {
+    font-size: 16px;
+    color: #777;
+    margin-top: 5px;
+  }
+  
+  /* Updated New Appointment Button */
+  .new-appointment-btn {
+    background-color: #A8DADC; /* New background color */
+    color: black; /* Text color black */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .new-appointment-btn:hover {
+    background-color: #81A9B8; /* Darker shade on hover */
+  }
+  
+  .btn-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .appointment-icon {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .no-appointment-text {
+    font-size: 18px;
+    color: #888;
+    margin-top: 20px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    /* On tablets and smaller screens */
+    .appointment-page {
+      padding: 15px;
+    }
+  
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+  
+    .heading h1 {
+      font-size: 20px;
+    }
+  
+    .heading h2 {
+      font-size: 14px;
+    }
+  
+    .new-appointment-btn {
+      margin-top: 10px;
+      align-self: flex-end;
+    }
+  
+    .appointment-icon {
+      width: 120px;
+      height: 120px;
+    }
+  
+    .no-appointment-text {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    /* On mobile phones */
+    .appointment-page {
+      padding: 10px;
+    }
+  
+    .header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .heading h1 {
+      font-size: 18px;
+    }
+  
+    .heading h2 {
+      font-size: 12px;
+    }
+  
+    .new-appointment-btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+    }
+  
+    .appointment-icon {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .no-appointment-text {
+      font-size: 14px;
+    }
+  }
+  

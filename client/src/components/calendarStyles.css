@@ -1,0 +1,41 @@
+/* Custom Green Background for Current Day */
+.react-calendar__tile--now {
+    background-color: #4CAF50 !important;
+    color: white !important; /* White text color */
+    border-radius: 50% !important; /* Rounded corners */
+    width: 100% !important;
+  }
+  
+  /* Default Calendar Styles (No Other Customization) */
+  .react-calendar {
+    background-color: #fff; /* Default white background */
+    border-radius: 8px;
+  }
+  
+  .react-calendar__tile {
+    color: black; /* Black text color for normal days */
+    border-radius: 0; /* Remove border radius for all tiles except the current day */
+  }
+  
+  .react-calendar__tile:enabled:hover {
+    background-color: #f0f0f0; /* Light gray background on hover for enabled tiles */
+  }
+  
+  .react-calendar__navigation {
+    /* background-color: #388E3C; Green background for navigation */
+    border-radius: 4px;
+  }
+  
+  .react-calendar__navigation button {
+    color: green; /* White text for navigation buttons */
+  }
+  
+  .react-calendar__navigation__label {
+    color: white; /* White text for month/year label */
+    font-size: 1.2rem;
+  }
+  
+  .react-calendar__month-view__weekdays {
+    color: #2c6f2b !important; /* Darker green for weekday headers */
+  }
+  
