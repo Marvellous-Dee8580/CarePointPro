@@ -1,144 +1,132 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FiChevronDown, FiMenu } from 'react-icons/fi';
-import dashboard from '../assets/dashboard-icon.svg';
-import appointment from '../assets/appointment-icon.svg';
-import medrecord from '../assets/files-icon.svg';
-import billings from '../assets/billing-icon.svg';
-import paymentIcon from '../assets/prescription-icon.svg';
-import historyIcon from '../assets/prescription-icon.svg';
-import invoiceIcon from '../assets/prescription-icon.svg';
-import prescription from '../assets/prescription-icon.svg';
-import health from '../assets/care-icon.svg';
-import support from '../assets/support-icon.svg';
-import logo from '../assets/logo.png';
+// import * as React from "react";
+// import { useNavigate, useLocation } from "react-router-dom";
+// import { sidebarItems as initialSidebarItems } from "./SidebarData";
+// import { SidebarItem } from "./SidebarItem";
+// import { ClinicInfo } from "./ClinicInfo";
 
-const Sidebar = () => {
-  const [isBillingOpen, setIsBillingOpen] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+// export function Sidebar() {
+//   const [activeIndex, setActiveIndex] = React.useState(null);
+//   const [dropdownState, setDropdownState] = React.useState({});
+//   const location = useLocation(); // Get the current location
 
-  const menuItems = [
-    { name: 'Dashboard', icon: dashboard, path: '/' },
-    { name: 'Appointments', icon: appointment, path: '/appointments' },
-    { name: 'Medical Records', icon: medrecord, path: '/medical-records' },
-    {
-      name: 'Billings & Payments',
-      icon: billings,
-      submenu: [
-        { name: 'View Invoices', icon: invoiceIcon, path: '/billings/invoices' },
-        { name: 'Make Payments', icon: paymentIcon, path: '/billings/payments' },
-        { name: 'Payment History', icon: historyIcon, path: '/billings/history' },
-      ],
-    },
-    { name: 'Prescriptions', icon: prescription, path: '/prescriptions' },
-    { name: 'Health Tools', icon: health, path: '/health-tools' },
-    { name: 'Support', icon: support, path: '/support' },
-  ];
+//   // Update activeIndex whenever the location changes
+//   React.useEffect(() => {
+//     const path = location.pathname;
+//     const activeItemIndex = initialSidebarItems.findIndex(
+//       (item) => item.path === path || (item.subItems && item.subItems.some(subItem => subItem.path === path))
+//     );
+//     setActiveIndex(activeItemIndex);
+//   }, [location]);
 
-  const toggleBillingDropdown = () => {
-    setIsBillingOpen((prev) => !prev);
+//   const handleItemClick = (index, path) => {
+//     setActiveIndex(index);
+//     if (path) {
+//       // Directly navigate here from Sidebar
+//       window.location.href = path;
+//     }
+//   };
+
+//   const toggleDropdown = (index) => {
+//     setDropdownState((prevState) => ({
+//       ...prevState,
+//       [index]: !prevState[index],
+//     }));
+//   };
+
+//   return (
+//     <div className="flex overflow-hidden flex-col pt-7 pb-28 bg-white max-w-[230px]">
+//       <div className="flex flex-col px-3 w-full leading-6 text-neutral-600">
+//         <img
+//           loading="lazy"
+//           src="https://cdn.builder.io/api/v1/image/assets/TEMP/34ea6cfec7c992fc90facc52f2f7cc6dad535af18db29c42d838365585ed6fd1?placeholderIfAbsent=true&apiKey=91a57716fa0c4017b5d1b119afeacf36"
+//           alt=""
+//           className="object-contain ml-4 max-w-full aspect-[3.13] w-[103px]"
+//         />
+//         <ClinicInfo />
+//       </div>
+//       <div className="flex flex-col items-start mt-5 w-full text-xs font-medium tracking-tight leading-6 text-black">
+//         {initialSidebarItems.map((item, index) => (
+//           <SidebarItem
+//             key={index}
+//             title={item.title}
+//             icon={item.icon}
+//             isActive={activeIndex === index}
+//             onClick={() => handleItemClick(index, item.path)}
+//             subItems={item.subItems}
+//             isOpen={dropdownState[index]}
+//             toggleDropdown={() => toggleDropdown(index)}
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Sidebar;
+import * as React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { sidebarItems as initialSidebarItems } from './SidebarData';
+import { SidebarItem } from './SidebarItem';
+import { ClinicInfo } from './ClinicInfo';
+
+export function Sidebar() {
+  const [activeIndex, setActiveIndex] = React.useState(null);
+  const [dropdownState, setDropdownState] = React.useState({});
+  const location = useLocation(); // Get the current location
+
+  // Update activeIndex whenever the location changes
+  React.useEffect(() => {
+    const path = location.pathname;
+    const activeItemIndex = initialSidebarItems.findIndex(
+      (item) =>
+        item.path === path ||
+        (item.subItems &&
+          item.subItems.some((subItem) => subItem.path === path))
+    );
+    setActiveIndex(activeItemIndex);
+  }, [location]);
+
+  const handleItemClick = (index, path) => {
+    setActiveIndex(index);
+    if (path) {
+      window.location.href = path; // Directly navigate here from Sidebar
+    }
   };
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen((prev) => !prev);
+  const toggleDropdown = (index) => {
+    setDropdownState((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index], // Toggle dropdown state
+    }));
   };
 
   return (
-    <div className="flex">
-      {/* Sidebar */}
-      <div
-        className={`${
-          isSidebarOpen ? 'w-64' : 'w-16'
-        } bg-white h-screen overflow-hidden transition-all duration-300 shadow-lg fixed md:relative`}
-      >
-        {/* Logo and Toggle Button */}
-        <div className="flex items-center justify-between p-4">
-          <div className="flex items-center space-x-3">
-            {/* Only show the logo and hamburger icon when the sidebar is collapsed */}
-            <img
-              src={logo}
-              alt="InnovaForge Logo"
-              className={`w-${isSidebarOpen ? '40' : '10'} h-10 transition-all`}
-            />
-          </div>
-          {/* Always visible Hamburger Icon */}
-          <button
-            className="p-2 bg-gray-100 rounded-full shadow-md"
-            onClick={toggleSidebar}
-          >
-            <FiMenu size={24} />
-          </button>
-        </div>
-
-        {/* Menu Items (Only show when sidebar is expanded) */}
-        {isSidebarOpen && (
-          <div className="p-2 mt-4">
-            {menuItems.map((item, index) => (
-              <div key={index}>
-                {!item.submenu ? (
-                  <Link
-                    to={item.path}
-                    className="flex items-center space-x-4 py-3 px-4 rounded-md hover:bg-gray-100 cursor-pointer"
-                  >
-                    <img
-                      src={item.icon}
-                      alt={`${item.name} Icon`}
-                      className="w-6 h-6"
-                    />
-                    <span className="text-gray-800 font-semibold text-base">
-                      {item.name}
-                    </span>
-                  </Link>
-                ) : (
-                  <div>
-                    <div
-                      className="flex items-center justify-between py-3 px-4 rounded-md hover:bg-gray-100 cursor-pointer"
-                      onClick={toggleBillingDropdown}
-                    >
-                      <div className="flex items-center space-x-4">
-                        <img
-                          src={item.icon}
-                          alt={`${item.name} Icon`}
-                          className="w-6 h-6"
-                        />
-                        <span className="text-gray-800 font-semibold text-base">
-                          {item.name}
-                        </span>
-                      </div>
-                      <FiChevronDown
-                        size={20}
-                        className={`transition-transform ${
-                          isBillingOpen ? 'rotate-180' : 'rotate-0'
-                        }`}
-                      />
-                    </div>
-                    {isBillingOpen && (
-                      <div className="pl-10 space-y-2">
-                        {item.submenu.map((submenuItem, subIndex) => (
-                          <Link
-                            key={subIndex}
-                            to={submenuItem.path}
-                            className="flex items-center space-x-4 text-gray-600 text-sm py-2 px-3 hover:text-gray-800 hover:bg-gray-200 rounded-md cursor-pointer"
-                          >
-                            <img
-                              src={submenuItem.icon}
-                              alt={`${submenuItem.name} Icon`}
-                              className="w-5 h-5"
-                            />
-                            <span>{submenuItem.name}</span>
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
+    <div className="flex overflow-hidden flex-col pt-7 pb-28 bg-white max-w-[230px]">
+      <div className="flex flex-col px-3 w-full leading-6 text-neutral-600">
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/34ea6cfec7c992fc90facc52f2f7cc6dad535af18db29c42d838365585ed6fd1?placeholderIfAbsent=true&apiKey=91a57716fa0c4017b5d1b119afeacf36"
+          alt=""
+          className="object-contain ml-4 max-w-full aspect-[3.13] w-[103px]"
+        />
+        <ClinicInfo />
+      </div>
+      <div className="flex flex-col items-start mt-5 w-full text-xs font-medium tracking-tight leading-6 text-black">
+        {initialSidebarItems.map((item, index) => (
+          <SidebarItem
+            key={index}
+            title={item.title}
+            icon={item.icon}
+            isActive={activeIndex === index}
+            onClick={() => handleItemClick(index, item.path)}
+            subItems={item.subItems}
+            isOpen={dropdownState[index]}
+            toggleDropdown={() => toggleDropdown(index)}
+          />
+        ))}
       </div>
     </div>
   );
-};
+}
 
 export default Sidebar;

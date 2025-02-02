@@ -1,0 +1,96 @@
+export const sidebarItems = [
+  {
+      title: 'Dashboard',
+      icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/6907abff53b7950e7046dce0fc2a10dfd97e02af62eeac41462ac30ca756b8ad?placeholderIfAbsent=true&apiKey=91a57716fa0c4017b5d1b119afeacf36',
+      isActive: false,
+      path: '/dashboard',
+  },
+  {
+    title: 'Appointments',
+    icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/8ef366f4d95b8b7f450b5151e7bad70801aacb61aa0010a6f8de920cef947ce7?placeholderIfAbsent=true&apiKey=91a57716fa0c4017b5d1b119afeacf36',
+    isActive: false,
+    path: '/appointments',
+},
+{
+    title: 'Prescriptions',
+    icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/8ef366f4d95b8b7f450b5151e7bad70801aacb61aa0010a6f8de920cef947ce7?placeholderIfAbsent=true&apiKey=91a57716fa0c4017b5d1b119afeacf36',
+    isActive: false,
+    path: '/prescriptions',
+},
+  {
+      title: 'Medical Records',
+      icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/271806de2885665f3d3791e0cca30f572056eb1505dffbcbdc2c73c9adc02451?placeholderIfAbsent=true&apiKey=91a57716fa0c4017b5d1b119afeacf36',
+      isActive: false,
+      path: '/medical-records',
+      subItems: [
+          { title: 'View Records', path: '/medical-records/view' },
+          { title: 'Add Record', path: '/medical-records/add' },
+      ],
+  },
+  {
+      title: 'Family Card',
+      icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/14dafd6d5d6619eae8124645521acd4656835f2b1cbd2420032863a30481d1fe?placeholderIfAbsent=true&apiKey=91a57716fa0c4017b5d1b119afeacf36',
+      isActive: false,
+      path: '/family-card',
+  },
+  {
+      title: 'Billings & Payments',
+      icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/71194a82f64023b90caee1fc645a49fd52a466407cd1d761a451e9c72430d947?placeholderIfAbsent=true&apiKey=91a57716fa0c4017b5d1b119afeacf36',
+      isActive: false,
+      path: '/billings-payments',
+  },
+  {
+      title: 'Telemedicine',
+      icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/a179e2ab7e997dc94e5208088f219650f72c8b13cb5dc86726e8dd04d041a744?placeholderIfAbsent=true&apiKey=91a57716fa0c4017b5d1b119afeacf36',
+      isActive: false,
+      path: '/telemedicine',
+  },
+  {
+      title: 'Emergency Service',
+      icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/604306b90b97cf9bf80f050e7567add2fbd2fb86b878d97b833080f70dee1523?placeholderIfAbsent=true&apiKey=91a57716fa0c4017b5d1b119afeacf36',
+      isActive: false,
+      path: '/emergency-service',
+  },
+  {
+      title: 'Health Tools',
+      icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/82e897ae3e62f8810d41db7c4ed14829050be0975ee9cbc6eef6bedb9db4f505?placeholderIfAbsent=true&apiKey=91a57716fa0c4017b5d1b119afeacf36',
+      isActive: false,
+      path: '/health-tools',
+  },
+  {
+      title: 'Health Card',
+      icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/61339580f1c2d9b0f843d60ec611d8d4f916e28a5e1fe781eeca7323350e5f37?placeholderIfAbsent=true&apiKey=91a57716fa0c4017b5d1b119afeacf36',
+      isActive: false,
+      path: '/health-card',
+  },
+  {
+      title: 'Lifestyle Management',
+      icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/adb3bc6b409eace6883d1a881f2892e7806aea8eef13e19fb983c926ab1ad746?placeholderIfAbsent=true&apiKey=91a57716fa0c4017b5d1b119afeacf36',
+      isActive: false,
+      path: '/lifestyle-management',
+  },
+  {
+      title: 'Community',
+      icon: '',
+      isActive: false,
+      path: '/community',
+  },
+  {
+      title: 'Referrals',
+      icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/5a62eed675d64dfdf6efff1dc9aa5a7b24fa44c66d460810c82f5231e08a7fb9?placeholderIfAbsent=true&apiKey=91a57716fa0c4017b5d1b119afeacf36',
+      isActive: false,
+      path: '/referrals',
+  },
+  {
+      title: 'Support',
+      icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/788199018f77c28498e62ea5a0e61f75b2fc83ee0bc955005419387891a57ce7?placeholderIfAbsent=true&apiKey=91a57716fa0c4017b5d1b119afeacf36',
+      isActive: false,
+      path: '/support',
+  },
+  {
+      title: 'Settings',
+      icon: 'https://www.figma.com/c8272ca7-43c2-40bb-96d6-05c112e093a4',
+      isActive: false,
+      path: '/settings',
+  },
+];

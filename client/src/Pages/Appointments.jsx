@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { FaPlusCircle } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
-import AppointmentIcon from '../assets/calendat-icon.svg'; // Import the SVG icon
-import MultiStageForm from './MultiStageForm'; // Import the form component
+import AppointmentIcon from '../assets/calendar-icon.svg'; // Ensure this is the correct icon filename
+import { PatientAppointmentBooking } from './PatientAppointmentBooking';
 
 const Appointments = () => {
-  const [isFormVisible, setIsFormVisible] = useState(false); // Modal visibility state
+  const [isFormVisible, setIsFormVisible] = useState(false);
 
   const toggleFormVisibility = () => {
     setIsFormVisible(!isFormVisible);
@@ -55,14 +55,20 @@ const Appointments = () => {
             onClick={toggleFormVisibility} // Close modal when clicking outside
           >
             <motion.div
-              className="absolute right-0 top-0 h-full w-96 bg-white shadow-lg"
+              className="absolute right-0 top-0 h-full w-full md:w-[1000px] bg-white shadow-lg"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()} // Prevent closing on modal click
             >
-              <MultiStageForm />
+              {/* Inside the modal, we now split the content equally */}
+              <div className="flex">
+                {/* Form side (left side) */}
+                <div className="w-2/2 p-6">
+                  <PatientAppointmentBooking />
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         )}
